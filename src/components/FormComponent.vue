@@ -8,21 +8,21 @@
   </form>
 </template>
 <script>
-import { useEventsStore } from "@/store/add";
+import { useAddStore } from "@/store/add";
 
 export default {
   name: "FormComponent",
   setup() {
-    const eventsStore = useEventsStore();
-    return { eventsStore };
+    const addStore = useAddStore();
+    return { addStore };
   },
 
   methods: {
     addEvent() {
-      console.log("adding event");
-      let etitle = document.getElementById("etitle").value;
-      let edescription = document.getElementById("edescription").value;
-      const formData = { etitle, edescription };
+      console.log("Adding event...");
+      let title = document.getElementById("etitle").value;
+      let description = document.getElementById("edescription").value;
+      const formData = { title, description };
 
       fetch(
         "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/",
@@ -37,8 +37,8 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           console.log("Success!", data);
-          const eventsStore = useEventsStore();
-          eventsStore.addEvent(data);
+          const addStore = useAddStore();
+          addStore.addEvent(data);
         })
         .catch((error) => {
           console.error("Error:", error);

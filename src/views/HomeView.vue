@@ -1,20 +1,21 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img
+      class="logo"
+      alt="Social medium events logo"
+      src="../assets/logo-sm.svg"
+    />
+    <h1>Social Medium Events</h1>
   </div>
   <EventList />
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 import EventList from "@/components/EventList.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
     EventList,
   },
 };

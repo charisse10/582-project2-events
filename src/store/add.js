@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 
-export const useEventsStore = defineStore("add", {
+export const useAddStore = defineStore("add", {
   state: () => ({ add: [] }),
   actions: {
-    addEvent(newEvent) {
-      this.add.push(newEvent);
+    addEvent(event) {
+      this.add.push(event);
     },
   },
 });

@@ -4,9 +4,15 @@
       <h2>Event List</h2>
       <div v-for="event in events" :key="event._id">
         <ul>
-          <li>{{ event.title }}</li>
-          <span> {{ event.description }} </span>
+          <ul class="event">
+            <li class="category">{{ event.category }}</li>
+            <li class="title">{{ event.title }}</li>
+            <li>{{ event.date }}</li>
+            <li>{{ event.time }}</li>
+            <li>{{ event.location }}</li>
+          </ul>
         </ul>
+        <button @click="deleteEvent(event._id)">DELETE</button>
       </div>
     </div>
   </section>

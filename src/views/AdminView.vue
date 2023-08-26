@@ -1,9 +1,9 @@
 <template>
   <div class="about">
-    <h1>This is the Admin View</h1>
+    <h1>Admin View</h1>
   </div>
   <FormComponent />
-  <EventList />
+  <EventList :events="admin" admin />
 </template>
 
 <script>
@@ -15,6 +15,11 @@ export default {
   components: {
     FormComponent,
     EventList,
+  },
+  data() {
+    return {
+      events: [],
+    };
   },
 };
 </script>

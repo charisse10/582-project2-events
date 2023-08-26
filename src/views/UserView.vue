@@ -1,8 +1,8 @@
 <template>
   <div class="about">
-    <h1>This is the User View</h1>
+    <h1>User View</h1>
   </div>
-  <EventList />
+  <EventList :events="events" user />
 </template>
 
 <script>
@@ -12,6 +12,11 @@ export default {
   name: "UserView",
   components: {
     EventList,
+  },
+  data() {
+    return {
+      events: [],
+    };
   },
 };
 </script>

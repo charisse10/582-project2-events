@@ -29,6 +29,11 @@ $orange: #f44d00;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 
+  h1 {
+    text-align: center;
+    padding: 25px 0;
+  }
+
   nav {
     background-color: #f8f9d4;
     text-align: center;
@@ -47,22 +52,6 @@ $orange: #f44d00;
           color: $orange;
         }
       }
-    }
-  }
-
-  .home {
-    background-color: aliceblue;
-    text-align: center;
-    padding: 25px 0;
-
-    .logo {
-      width: 75px;
-      margin-bottom: -25px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: bold;
     }
   }
 

@@ -36,5 +36,12 @@
     "prettier": "^2.4.1",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0"
-  }
+  },
+  "description": "#### This web app is built with NodeJS as runtime environment, VueJS for frontend with Pinia as state management, ExpressJS for bankend, and MongoDB as database.",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "Charisse",
+  "license": "ISC"
 }

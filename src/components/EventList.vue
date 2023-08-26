@@ -12,7 +12,6 @@
             <li>{{ event.location }}</li>
           </ul>
         </ul>
-        <button @click="deleteEvent(event._id)">DELETE</button>
       </div>
     </div>
   </section>

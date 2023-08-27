@@ -1,44 +1,34 @@
 <template>
-  <button @click="onDeleteClick">DELETE</button>
+  <button @click="submitDelete(event._id)">Delete</button>
 </template>
 
 <script>
-import { useEventsStore } from "../store/events";
+import { useEventsStore } from "@/store/events";
 
 export default {
   props: {
     event: Object,
   },
-  methods:
-    //   async deleteEvent(eventId) {
-    //   try {
-    //     const response = await fetch(`your_backend_url/${eventId}`, {
-    //       method: "DELETE",
-    //     });
-
-    //     if (response.ok) {
-    //       this.removeDeletedEventFromState(eventId);
-
-    //       this.deletionStatus = "success";
-    //     } else {
-    //       const data = await response.json();
-    //       throw new Error(data.message || "Error deleting event");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error deleting event:", error);
-    //     this.deletionStatus = "error";
-    //     throw error;
-    //   }
-    // },
-
-
-
-
-
-
-
-
-
+  methods: {
+    async submitDelete(eventId) {
+      try {
+        const response = await fetch(
+          `https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/${eventId}`,
+          {
+            method: "DELETE",
+          }
+        );
+        if (response.ok) {
+          const eventsStore = useEventsStore();
+          eventsStore.deleteEvent(eventId);
+        } else {
+          const data = await response.json();
+          console.error("Error deleting event:", data.message);
+        }
+      } catch (error) {
+        console.error("Error deleting event:", error);
+      }
+    },
+  },
+};
 </script>
-
-

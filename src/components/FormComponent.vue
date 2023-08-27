@@ -3,11 +3,36 @@
     <div class="container">
       <h2>Add Event</h2>
       <form @submit.prevent="addEvent">
-        <input id="etitle" type="text" placeholder="title" />
-        <input id="ecategory" type="text" placeholder="category" />
-        <input id="edate" type="text" placeholder="January 01, 2023" />
-        <input id="etime" type="text" placeholder="7:00 pm" />
-        <input id="elocation" type="text" placeholder="location" />
+        <input
+          id="etitle"
+          type="text"
+          v-model="titleInput"
+          placeholder="title"
+        />
+        <input
+          id="ecategory"
+          type="text"
+          v-model="categoryInput"
+          placeholder="category"
+        />
+        <input
+          id="edate"
+          type="text"
+          v-model="dateInput"
+          placeholder="January 01, 2023"
+        />
+        <input
+          id="etime"
+          type="text"
+          v-model="timeInput"
+          placeholder="7:00 pm"
+        />
+        <input
+          id="elocation"
+          type="text"
+          v-model="locationInput"
+          placeholder="location"
+        />
         <input id="esubmit" type="submit" value="Add Event" />
       </form>
     </div>
@@ -15,26 +40,25 @@
 </template>
 
 <script>
-// import { useAddStore } from "@/store/add";
+import { ref } from "vue"; // Import ref from Vue Composition API
 import { useEventsStore } from "@/store/events";
 
 export default {
   name: "FormComponent",
   setup() {
-    // const addStore = useAddStore();
     const eventsStore = useEventsStore();
-    // return { addStore };
-    return { eventsStore };
-  },
+    const titleInput = ref("");
+    const categoryInput = ref("");
+    const dateInput = ref("");
+    const timeInput = ref("");
+    const locationInput = ref("");
 
-  methods: {
-    addEvent() {
-      console.log("Adding event...");
-      let title = document.getElementById("etitle").value;
-      let category = document.getElementById("ecategory").value;
-      let date = document.getElementById("edate").value;
-      let time = document.getElementById("etime").value;
-      let location = document.getElementById("elocation").value;
+    const addEvent = () => {
+      let title = titleInput.value;
+      let category = categoryInput.value;
+      let date = dateInput.value;
+      let time = timeInput.value;
+      let location = locationInput.value;
       const formData = { title, category, date, time, location };
 
       fetch(
@@ -50,16 +74,27 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           console.log("Success!", data);
-
-          // const addStore = useAddStore();
-          const eventsStore = useEventsStore();
-          // addStore.addEvent(data);
           eventsStore.addEvent(data);
+
+          titleInput.value = "";
+          categoryInput.value = "";
+          dateInput.value = "";
+          timeInput.value = "";
+          locationInput.value = "";
         })
         .catch((error) => {
           console.error("Error:", error);
         });
-    },
+    };
+
+    return {
+      titleInput,
+      categoryInput,
+      dateInput,
+      timeInput,
+      locationInput,
+      addEvent,
+    };
   },
 };
 </script>

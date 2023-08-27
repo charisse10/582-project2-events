@@ -8,7 +8,7 @@ export const useEventsStore = defineStore("events", {
     },
 
     addEvent(event) {
-      this.add.push(event);
+      this.events.push(event);
     },
 
     deleteEvent(eventId) {

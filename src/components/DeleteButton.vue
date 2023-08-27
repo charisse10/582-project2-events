@@ -3,26 +3,42 @@
 </template>
 
 <script>
-import { useDeleteStore } from "@/stores/deleteStore";
+import { useEventsStore } from "../store/events";
 
 export default {
   props: {
     event: Object,
   },
-  setup(props) {
-    const { deleteEvent } = useDeleteStore();
+  methods:
+    //   async deleteEvent(eventId) {
+    //   try {
+    //     const response = await fetch(`your_backend_url/${eventId}`, {
+    //       method: "DELETE",
+    //     });
 
-    const onDeleteClick = async () => {
-      try {
-        await deleteEvent(props.event._id);
-      } catch (error) {
-        console.error("Error deleting event:", error);
-      }
-    };
+    //     if (response.ok) {
+    //       this.removeDeletedEventFromState(eventId);
 
-    return {
-      onDeleteClick,
-    };
-  },
-};
+    //       this.deletionStatus = "success";
+    //     } else {
+    //       const data = await response.json();
+    //       throw new Error(data.message || "Error deleting event");
+    //     }
+    //   } catch (error) {
+    //     console.error("Error deleting event:", error);
+    //     this.deletionStatus = "error";
+    //     throw error;
+    //   }
+    // },
+
+
+
+
+
+
+
+
+
 </script>
+
+

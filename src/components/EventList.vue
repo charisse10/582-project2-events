@@ -18,12 +18,15 @@
 </template>
 
 <script>
-import { useDisplayStore } from "../store/display";
+// import { useDisplayStore } from "../store/display";
+import { useEventsStore } from "../store/events";
 
 export default {
   setup() {
-    const displayStore = useDisplayStore();
-    const events = displayStore.events;
+    // const displayStore = useDisplayStore();
+    const eventsStore = useEventsStore();
+    // const events = displayStore.events;
+    const events = eventsStore.events;
 
     return { events };
   },
@@ -37,8 +40,10 @@ export default {
           "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/"
         );
         const data = await response.json();
-        const displayStore = useDisplayStore();
-        displayStore.displayEvents(data);
+        // const displayStore = useDisplayStore();
+        const eventsStore = useEventsStore();
+        // displayStore.displayEvents(data);
+        eventsStore.displayEvents(data);
       } catch (error) {
         console.error("Error fetching events:", error);
       }

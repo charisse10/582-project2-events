@@ -13,14 +13,18 @@
     </div>
   </section>
 </template>
+
 <script>
-import { useAddStore } from "@/store/add";
+// import { useAddStore } from "@/store/add";
+import { useEventsStore } from "@/store/events";
 
 export default {
   name: "FormComponent",
   setup() {
-    const addStore = useAddStore();
-    return { addStore };
+    // const addStore = useAddStore();
+    const eventsStore = useEventsStore();
+    // return { addStore };
+    return { eventsStore };
   },
 
   methods: {
@@ -46,8 +50,11 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           console.log("Success!", data);
-          const addStore = useAddStore();
-          addStore.addEvent(data);
+
+          // const addStore = useAddStore();
+          const eventsStore = useEventsStore();
+          // addStore.addEvent(data);
+          eventsStore.addEvent(data);
         })
         .catch((error) => {
           console.error("Error:", error);

@@ -2,7 +2,7 @@
   <div class="about">
     <h1>User View</h1>
   </div>
-  <EventList :events="events" user />
+  <EventList />
 </template>
 
 <script>

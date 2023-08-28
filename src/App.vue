@@ -22,12 +22,14 @@ export default {
 }
 
 $orange: #f44d00;
+$blue: #2c3e50;
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  font-size: 16px;
 
   h1 {
     text-align: center;
@@ -35,7 +37,7 @@ $orange: #f44d00;
   }
 
   nav {
-    background-color: #f8f9d4;
+    background-color: #eaeaea;
     text-align: center;
     padding: 25px 0;
 
@@ -46,7 +48,7 @@ $orange: #f44d00;
 
       a {
         font-weight: bold;
-        color: #2c3e50;
+        color: $blue;
 
         &.router-link-exact-active {
           color: $orange;
@@ -56,7 +58,6 @@ $orange: #f44d00;
   }
 
   .events {
-    background-color: rgb(239, 239, 239);
     padding: 25px 0;
 
     .container {
@@ -64,10 +65,15 @@ $orange: #f44d00;
       margin: 0 auto;
       padding: 0 20px;
 
+      h2 {
+        margin-bottom: 25px;
+      }
+
       ul.event {
+        background: #f0f0f0;
         border: 1px solid #878787;
         min-height: 120px;
-        padding: 10px;
+        padding: 25px;
         margin-bottom: 25px;
 
         li {
@@ -81,6 +87,7 @@ $orange: #f44d00;
 
         .title {
           color: $orange;
+          text-transform: capitalize;
           font-size: 1.3rem;
           font-weight: bold;
         }
@@ -88,14 +95,22 @@ $orange: #f44d00;
     }
   }
 
-  .form {
-    background-color: rgb(241, 227, 254);
-    padding: 25px 0;
+  .section-form {
+    max-width: 90%;
+    margin: 25px auto 50px;
+    border-radius: 25px;
+    background: $blue;
+    padding: 35px 0;
 
     .container {
       max-width: 90%;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 25px;
+
+      h2 {
+        color: #fff;
+        margin-bottom: 10px;
+      }
 
       form {
         input {
@@ -104,6 +119,24 @@ $orange: #f44d00;
           padding: 10px;
           width: 100%;
           border: 1px solid #878787;
+        }
+
+        input#esubmit {
+          background-color: $orange;
+          color: #fff;
+          width: 200px;
+          margin: 20px auto 0;
+          border-radius: 25px;
+          font-size: 1.1rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+
+        .placeholder {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
         }
       }
     }

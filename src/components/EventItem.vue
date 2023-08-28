@@ -5,7 +5,6 @@
     <li>{{ event.date }}</li>
     <li>{{ event.time }}</li>
     <li>{{ event.location }}</li>
-    <button @click="deleteEvent(event._id)">Delete</button>
   </ul>
 </template>
 
@@ -18,6 +17,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Add your styles here */
-</style>
+<style scoped></style>

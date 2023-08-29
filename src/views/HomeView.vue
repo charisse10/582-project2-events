@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Social Medium Events</h1>
+    <h1>Probable Guacamole</h1>
   </div>
   <EventList />
 </template>

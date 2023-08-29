@@ -13,6 +13,11 @@ export const useEventsStore = defineStore("events", {
 
     likeEvent(eventId) {
       const event = this.events.find((event) => event.id === eventId);
+      return event.likes;
+    },
+
+    likeCount(eventId) {
+      const event = this.events.find((event) => event.id === eventId);
       event.likes++;
     },
 

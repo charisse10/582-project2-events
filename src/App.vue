@@ -70,11 +70,19 @@ $blue: #2c3e50;
 
       .event {
         text-align: center;
-        background-color: #fff;
-        border: 2px solid $blue;
+        background-color: #f3f3f3;
         padding: 25px;
         margin-bottom: 25px;
         border-radius: 25px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+          background-color: #fff7f2;
+        }
+
+        span {
+          font-weight: bold;
+        }
 
         h4 {
           text-transform: uppercase;
@@ -101,11 +109,18 @@ $blue: #2c3e50;
           cursor: pointer;
         }
 
+        p {
+          max-width: 80%;
+          margin: 0 auto;
+          text-align: left;
+        }
+
         button.interestedbutton {
           background-color: $orange;
           color: #fff;
         }
       }
+
       .event.interestedevent {
         background-color: #e4f0ff;
       }

@@ -6,9 +6,15 @@
         <div class="event" :class="{ interestedevent: event.interested }">
           <h4>{{ event.category }}</h4>
           <h3>{{ event.title }}</h3>
-          <p>DATE: {{ event.date }}</p>
-          <p>TIME: {{ event.time }}</p>
-          <p>LOCATION:{{ event.location }}</p>
+          <p>
+            DATE: <span> {{ event.date }} </span>
+          </p>
+          <p>
+            TIME: <span> {{ event.time }} </span>
+          </p>
+          <p>
+            LOCATION: <span> {{ event.location }} </span>
+          </p>
           <button
             v-if="showButtons"
             @click="toggleInterest(event)"

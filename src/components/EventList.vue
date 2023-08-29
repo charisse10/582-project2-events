@@ -16,7 +16,9 @@
           >
             {{ event.interested ? "Interested!" : "Interested" }}
           </button>
-          
+          <button v-if="showDeleteButton" @click="deleteEvent(event._id)">
+            Delete
+          </button>
         </div>
       </div>
     </div>
@@ -33,10 +35,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    showDeleteButton: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup() {
     const eventsStore = useEventsStore();
-    const events = eventsStore.events;
+    // const events = eventsStore.events;
 
     const fetchEvents = async () => {
       try {
@@ -56,7 +62,13 @@ export default {
       event.interested = !event.interested;
     };
 
-    return { events, toggleInterest };
+    const deleteEvent = (eventId) => {
+      eventsStore.events = eventsStore.events.filter(
+        (event) => event._id !== eventId
+      );
+    };
+
+    return { events: eventsStore.events, toggleInterest, deleteEvent };
   },
 };
 </script>

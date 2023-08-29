@@ -28,7 +28,6 @@ $blue: #2c3e50;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   font-size: 16px;
 
   h1 {
@@ -48,7 +47,7 @@ $blue: #2c3e50;
 
       a {
         font-weight: bold;
-        color: $blue;
+        color: #000;
 
         &.router-link-exact-active {
           color: $orange;
@@ -57,40 +56,58 @@ $blue: #2c3e50;
     }
   }
 
-  .events {
+  .section-events {
     padding: 25px 0;
 
     .container {
       max-width: 90%;
       margin: 0 auto;
-      padding: 0 20px;
 
       h2 {
+        text-align: center;
         margin-bottom: 25px;
       }
 
-      ul.event {
-        background: #f0f0f0;
-        border: 1px solid #878787;
-        min-height: 120px;
+      .event {
+        text-align: center;
+        background-color: #fff;
+        border: 2px solid $blue;
         padding: 25px;
         margin-bottom: 25px;
+        border-radius: 25px;
 
-        li {
-          list-style: none;
-        }
-
-        .category {
+        h4 {
           text-transform: uppercase;
-          font-weight: bold;
+          text-decoration: underline;
+          text-underline-offset: 5px;
+          margin-bottom: 20px;
         }
 
-        .title {
+        h3 {
           color: $orange;
           text-transform: capitalize;
-          font-size: 1.3rem;
-          font-weight: bold;
+          font-size: 1.5rem;
+          line-height: 1.2;
+          margin-bottom: 20px;
         }
+
+        button {
+          background: #fff;
+          padding: 5px 30px;
+          border: 2px solid $orange;
+          border-radius: 25px;
+          margin-top: 20px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        button.interestedbutton {
+          background-color: $orange;
+          color: #fff;
+        }
+      }
+      .event.interestedevent {
+        background-color: #e4f0ff;
       }
     }
   }

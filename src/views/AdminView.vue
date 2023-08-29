@@ -3,7 +3,7 @@
     <h1>Admin View</h1>
   </div>
   <FormComponent />
-  <EventList />
+  <EventList :showDeleteButton="true"/>
 </template>
 
 <script>

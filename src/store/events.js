@@ -4,15 +4,15 @@ export const useEventsStore = defineStore("events", {
   state: () => ({ events: [] }),
   actions: {
     displayEvents(events) {
-      this.events = events;
+      this.events = events.map((event) => ({
+        ...event,
+        interested: false,
+      }));
     },
 
     addEvent(event) {
       this.events.push(event);
     },
-
-    deleteEvent(eventId) {
-      this.events = this.events.filter((event) => event._id !== eventId);
-    },
+    
   },
 });

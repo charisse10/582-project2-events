@@ -7,12 +7,12 @@
             src="https://static.vecteezy.com/system/resources/thumbnails/017/398/790/small/white-circle-free-png.png"
             alt="logo"
           />
+          <p>com / events</p>
         </div>
         <NavBar />
       </nav>
     </div>
   </header>
-
   <router-view />
 </template>
 
@@ -58,7 +58,7 @@ $blue: #2c3e50;
     background-color: $orange;
 
     .container {
-      max-width: 90%;
+      max-width: 80%;
       margin: 0 auto;
       padding: 10px 0;
 
@@ -68,8 +68,19 @@ $blue: #2c3e50;
         align-items: center;
 
         .logo {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
           img {
             width: 50px;
+          }
+
+          p {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: medium;
+            margin-left: 10px;
           }
         }
 
@@ -79,12 +90,21 @@ $blue: #2c3e50;
           a {
             color: #fff;
             text-decoration: none;
-
+            text-transform: uppercase;
+            font-weight: medium;
             margin-left: 25px;
 
             &:hover {
-              color: #fff;
+              color: rgb(255, 255, 124);
+              text-decoration: underline;
+              text-underline-offset: 5px;
             }
+          }
+
+          #access {
+            border-radius: 15px;
+            padding: 0 5px;
+            cursor: pointer;
           }
         }
       } //nav

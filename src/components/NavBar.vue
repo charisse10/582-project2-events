@@ -1,15 +1,17 @@
 <template>
   <nav>
     <div class="container">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/user">User</router-link> |
-      <router-link to="/admin">Admin</router-link>
+      <div class="navbar">
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+      </div>
     </div>
+    <div></div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: "NavBar",
+  name: "AcessNav",
 };
 </script>

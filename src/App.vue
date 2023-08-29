@@ -1,5 +1,18 @@
 <template>
-  <NavBar />
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/017/398/790/small/white-circle-free-png.png"
+            alt="logo"
+          />
+        </div>
+        <NavBar />
+      </nav>
+    </div>
+  </header>
+
   <router-view />
 </template>
 
@@ -21,6 +34,12 @@ export default {
   box-sizing: border-box;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 $orange: #f44d00;
 $blue: #2c3e50;
 
@@ -35,27 +54,42 @@ $blue: #2c3e50;
     padding: 25px 0;
   }
 
-  nav {
-    background-color: #eaeaea;
-    text-align: center;
-    padding: 25px 0;
+  header {
+    background-color: $orange;
 
     .container {
       max-width: 90%;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 10px 0;
 
-      a {
-        font-weight: bold;
-        color: #000;
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        &.router-link-exact-active {
-          color: $orange;
+        .logo {
+          img {
+            width: 50px;
+          }
         }
-      }
-    }
-  }
 
+        .navbar {
+          display: flex;
+
+          a {
+            color: #fff;
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+      } //nav
+    } //conatainer
+  }
   .section-events {
     padding: 25px 0;
 

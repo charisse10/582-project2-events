@@ -14,16 +14,18 @@ const routes = [
     path: "/access",
     name: "access",
     component: AccessView,
-  },
-  {
-    path: "/access/user",
-    name: "user",
-    component: UserView,
-  },
-  {
-    path: "/access/admin",
-    name: "admin",
-    component: AdminView,
+    children: [
+      {
+        path: "user",
+        name: "user",
+        component: UserView,
+      },
+      {
+        path: "admin",
+        name: "admin",
+        component: AdminView,
+      },
+    ],
   },
 ];
 

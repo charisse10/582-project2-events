@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import { useEventsStore } from "../store/events";
 
 export default {
@@ -48,6 +49,7 @@ export default {
   },
   setup() {
     const eventsStore = useEventsStore();
+    
     // const events = eventsStore.events;
 
     const fetchEvents = async () => {

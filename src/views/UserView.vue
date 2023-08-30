@@ -2,20 +2,23 @@
   <div class="about">
     <h1>User View</h1>
   </div>
-  <EventList :showButtons="true" />
+  <EventList :events="events" :showButtons="true" />
 </template>
 
 <script>
 import EventList from "@/components/EventList.vue";
+import { useEventsStore } from "../store/events";
 
 export default {
   name: "UserView",
   components: {
     EventList,
   },
-  data() {
+  setup() {
+    const eventsStore = useEventsStore();
+
     return {
-      events: [],
+      events: eventsStore.events,
     };
   },
 };

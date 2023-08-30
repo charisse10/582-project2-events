@@ -3,12 +3,13 @@
     <h1>Admin View</h1>
   </div>
   <FormComponent />
-  <EventList :showDeleteButton="true" />
+  <EventList :events="events" :showDeleteButton="true" />
 </template>
 
 <script>
 import FormComponent from "@/components/FormComponent.vue";
 import EventList from "@/components/EventList.vue";
+import { useEventsStore } from "../store/events";
 
 export default {
   name: "AdminView",
@@ -16,9 +17,11 @@ export default {
     FormComponent,
     EventList,
   },
-  data() {
+  setup() {
+    const eventsStore = useEventsStore();
+
     return {
-      events: [],
+      events: eventsStore.events,
     };
   },
 };

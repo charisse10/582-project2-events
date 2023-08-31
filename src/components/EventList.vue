@@ -3,39 +3,27 @@
     <div class="container">
       <h2>Summer Events</h2>
       <div v-for="event in events" :key="event._id">
-        <div class="event" :class="{ interestedevent: event.interested }">
-          <h4>{{ event.category }}</h4>
-          <h3>{{ event.title }}</h3>
-          <p>
-            DATE: <span> {{ event.date }} </span>
-          </p>
-          <p>
-            TIME: <span> {{ event.time }} </span>
-          </p>
-          <p>
-            LOCATION: <span> {{ event.location }} </span>
-          </p>
-          <button
-            v-if="showButtons"
-            @click="toggleInterest(event)"
-            :class="{ interestedbutton: event.interested }"
-          >
-            {{ event.interested ? "Interested!" : "Interested" }}
-          </button>
-          <button v-if="showDeleteButton" @click="deleteEvent(event._id)">
-            Delete
-          </button>
-        </div>
+        <EventItem
+          :event="event"
+          :showButtons="showButtons"
+          :showDeleteButton="showDeleteButton"
+          @toggle-interest="toggleInterest"
+          @delete-event="deleteEvent"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { useEventsStore } from "../store/events";
+import { ref } from "vue";
+import EventItem from "./EventItem.vue";
 
 export default {
   name: "EventList",
+  components: {
+    EventItem,
+  },
   props: {
     showButtons: {
       type: Boolean,
@@ -47,9 +35,7 @@ export default {
     },
   },
   setup() {
-    const eventsStore = useEventsStore();
-
-    // const events = eventsStore.events;
+    const events = ref([]);
 
     const fetchEvents = async () => {
       try {
@@ -57,8 +43,7 @@ export default {
           "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/"
         );
         const data = await response.json();
-
-        eventsStore.displayEvents(data);
+        events.value = data;
       } catch (error) {
         console.error("Error fetching events:", error);
       }
@@ -70,12 +55,17 @@ export default {
     };
 
     const deleteEvent = (eventId) => {
-      eventsStore.events = eventsStore.events.filter(
-        (event) => event._id !== eventId
-      );
+      const index = events.value.findIndex((event) => event._id === eventId);
+      if (index !== -1) {
+        events.value.splice(index, 1);
+      }
     };
 
-    return { events: eventsStore.events, toggleInterest, deleteEvent };
+    return {
+      events,
+      toggleInterest,
+      deleteEvent,
+    };
   },
 };
 </script>

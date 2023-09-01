@@ -188,6 +188,11 @@ $blue: #2c3e50;
     background: $blue;
     padding: 35px 0;
 
+    .added {
+      color: #fff;
+      text-align: center;
+    }
+
     .container {
       max-width: 90%;
       margin: 0 auto;
@@ -211,7 +216,7 @@ $blue: #2c3e50;
           background-color: $orange;
           color: #fff;
           width: 200px;
-          margin: 20px auto 0;
+          margin: 30px auto 30px;
           border-radius: 25px;
           font-size: 1.1rem;
           font-weight: bold;

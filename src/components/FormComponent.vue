@@ -8,8 +8,14 @@
           id="etitle"
           type="text"
           placeholder="Title"
+          required
         />
-        <select v-model="categoryInput" id="ecategory" class="placeholder">
+        <select
+          v-model="categoryInput"
+          id="ecategory"
+          class="placeholder"
+          required
+        >
           <option value="" disabled selected hidden>Select Category</option>
           <option value="On the big screen">On the big screen</option>
           <option value="We love to read">We love to read</option>
@@ -19,11 +25,16 @@
           <option value="Celebrate">Celebrate</option>
         </select>
 
-        <input v-model="dateInput" id="edate" type="date" />
+        <input v-model="dateInput" id="edate" type="date" required />
 
-        <input v-model="timeInput" id="etime" type="time" />
+        <input v-model="timeInput" id="etime" type="time" required />
 
-        <select v-model="locationInput" id="elocation" class="placeholder">
+        <select
+          v-model="locationInput"
+          id="elocation"
+          class="placeholder"
+          required
+        >
           <option value="" disabled selected hidden>Select Location</option>
           <option value="CSL Auditorium">CSL Auditorium</option>
           <option value="Ashkelon Gardens">Ashkelon Gardens</option>
@@ -38,9 +49,9 @@
             Meadowbrook Golf Course
           </option>
         </select>
-
         <input id="esubmit" type="submit" value="Submit Event" />
       </form>
+      <p v-if="isSubmitted" class="added">Event added successfully!</p>
     </div>
   </section>
 </template>
@@ -57,6 +68,7 @@ export default {
       dateInput: "",
       timeInput: "",
       locationInput: "",
+      isSubmitted: false,
     };
   },
   methods: {
@@ -85,7 +97,7 @@ export default {
           console.log("Success!", data);
           eventsStore.addEvent(data);
 
-          this.titleInput = "";
+          (this.isSubmitted = true), (this.titleInput = "");
           this.categoryInput = "";
           this.dateInput = "";
           this.timeInput = "";

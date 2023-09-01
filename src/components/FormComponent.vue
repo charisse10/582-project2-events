@@ -4,18 +4,12 @@
       <h2>Add Event</h2>
       <form @submit.prevent="addEvent">
         <input
+          v-model="titleInput"
           id="etitle"
           type="text"
-          v-model="titleInput"
           placeholder="Title"
         />
-        <!-- <input
-          id="ecategory"
-          type="text"
-          v-model="categoryInput"
-          placeholder="Category"
-        /> -->
-        <select id="ecategory" v-model="categoryInput" class="placeholder">
+        <select v-model="categoryInput" id="ecategory" class="placeholder">
           <option value="" disabled selected hidden>Select Category</option>
           <option value="On the big screen">On the big screen</option>
           <option value="We love to read">We love to read</option>
@@ -25,11 +19,11 @@
           <option value="Celebrate">Celebrate</option>
         </select>
 
-        <input id="edate" type="date" v-model="dateInput" />
+        <input v-model="dateInput" id="edate" type="date" />
 
-        <input id="etime" type="time" v-model="timeInput" />
+        <input v-model="timeInput" id="etime" type="time" />
 
-        <select id="edate" v-model="locationInput" class="placeholder">
+        <select v-model="locationInput" id="elocation" class="placeholder">
           <option value="" disabled selected hidden>Select Location</option>
           <option value="CSL Auditorium">CSL Auditorium</option>
           <option value="Ashkelon Gardens">Ashkelon Gardens</option>
@@ -52,26 +46,29 @@
 </template>
 
 <script>
-import { ref } from "vue";
 import { useEventsStore } from "@/store/events";
 
 export default {
   name: "FormComponent",
-  setup() {
-    const eventsStore = useEventsStore();
-    const titleInput = ref("");
-    const categoryInput = ref("");
-    const dateInput = ref("");
-    const timeInput = ref("");
-    const locationInput = ref("");
-
-    const addEvent = () => {
-      let title = titleInput.value;
-      let category = categoryInput.value;
-      let date = dateInput.value;
-      let time = timeInput.value;
-      let location = locationInput.value;
-      const formData = { title, category, date, time, location };
+  data() {
+    return {
+      titleInput: "",
+      categoryInput: "",
+      dateInput: "",
+      timeInput: "",
+      locationInput: "",
+    };
+  },
+  methods: {
+    addEvent() {
+      const eventsStore = useEventsStore();
+      const formData = {
+        title: this.titleInput,
+        category: this.categoryInput,
+        date: this.dateInput,
+        time: this.timeInput,
+        location: this.locationInput,
+      };
 
       fetch(
         "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/",
@@ -88,25 +85,16 @@ export default {
           console.log("Success!", data);
           eventsStore.addEvent(data);
 
-          titleInput.value = "";
-          categoryInput.value = "";
-          dateInput.value = "";
-          timeInput.value = "";
-          locationInput.value = "";
+          this.titleInput = "";
+          this.categoryInput = "";
+          this.dateInput = "";
+          this.timeInput = "";
+          this.locationInput = "";
         })
         .catch((error) => {
           console.error("Error:", error);
         });
-    };
-
-    return {
-      titleInput,
-      categoryInput,
-      dateInput,
-      timeInput,
-      locationInput,
-      addEvent,
-    };
+    },
   },
 };
 </script>

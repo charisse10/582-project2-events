@@ -18,7 +18,7 @@
     >
       {{ event.interested ? "Interested!" : "Interested" }}
     </button>
-    <button v-if="showDeleteButton" @click="submitDeleteEvent(event._id)">
+    <button v-if="showDeleteButton" @click="submitDeleteEvent(event.id)">
       DELETE
     </button>
   </div>

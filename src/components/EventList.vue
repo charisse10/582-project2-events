@@ -2,13 +2,13 @@
   <section class="section-events">
     <div class="container">
       <h2>Summer Events</h2>
-      <div v-for="event in events" :key="event._id">
+      <div v-for="event in events" :key="event.id">
         <EventItem
           :event="event"
           :showButtons="showButtons"
           :showDeleteButton="showDeleteButton"
           @toggleInterest="toggleInterest"
-          @submit-delete-event="deleteEvent"
+          @submitDeleteEvent="submitDeleteEvent"
         />
       </div>
     </div>
@@ -50,20 +50,58 @@ export default {
     };
     fetchEvents();
 
-    const toggleInterest = (event) => {
+    const toggleInterest = async (event) => {
       event.interested = !event.interested;
+
+      try {
+        const response = await fetch(
+          `https://your-backend-api.com/events/${event._id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ interested: event.interested }),
+          }
+        );
+
+        if (response.ok) {
+          console.log("Interest status updated successfully");
+        } else {
+          console.error(
+            "Failed to update interest status:",
+            response.statusText
+          );
+          event.interested = !event.interested;
+        }
+      } catch (error) {
+        console.error("Error updating interest status:", error);
+        event.interested = !event.interested;
+      }
     };
 
-    const deleteEvent = (deletedEventId) => {
-      events.value = events.value.filter(
-        (event) => event._id !== deletedEventId
-      );
+    const submitDeleteEvent = async (eventId) => {
+      try {
+        const response = await fetch(
+          `https://your-backend-api.com/events/${eventId}`,
+          {
+            method: "DELETE",
+          }
+        );
+        if (response.ok) {
+          events.value = events.value.filter((event) => event.id !== eventId);
+        } else {
+          console.error("Failed to delete event:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error deleting event:", error);
+      }
     };
 
     return {
       events,
       toggleInterest,
-      deleteEvent,
+      submitDeleteEvent,
     };
   },
 };

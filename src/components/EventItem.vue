@@ -44,6 +44,7 @@ export default {
   data() {
     return {};
   },
+
   methods: {
     toggleInterest(event) {
       this.$emit("toggle-interest", event);
@@ -51,12 +52,9 @@ export default {
 
     async deleteEvent(eventId) {
       try {
-        await fetch(
-          `https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/events/${eventId}`,
-          {
-            method: "DELETE",
-          }
-        );
+        await fetch(`http://localhost:3000/${eventId}`, {
+          method: "DELETE",
+        });
         this.$emit("delete-event", eventId);
       } catch (error) {
         console.error("Error deleting event:", error);

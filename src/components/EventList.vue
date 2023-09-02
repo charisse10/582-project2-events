@@ -7,8 +7,8 @@
           :event="event"
           :showButtons="showButtons"
           :showDeleteButton="showDeleteButton"
-          @toggle-interest="toggleInterest"
-          @delete-event="deleteEvent"
+          @toggleInterest="toggleInterest"
+          @submit-delete-event="deleteEvent"
         />
       </div>
     </div>
@@ -54,11 +54,10 @@ export default {
       event.interested = !event.interested;
     };
 
-    const deleteEvent = (eventId) => {
-      const index = events.value.findIndex((event) => event._id === eventId);
-      if (index !== -1) {
-        events.value.splice(index, 1);
-      }
+    const deleteEvent = (deletedEventId) => {
+      events.value = events.value.filter(
+        (event) => event._id !== deletedEventId
+      );
     };
 
     return {

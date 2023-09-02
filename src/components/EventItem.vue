@@ -18,8 +18,8 @@
     >
       {{ event.interested ? "Interested!" : "Interested" }}
     </button>
-    <button v-if="showDeleteButton" @click="deleteEvent(event._id)">
-      Delete
+    <button v-if="showDeleteButton" @click="submitDeleteEvent(event._id)">
+      DELETE
     </button>
   </div>
 </template>
@@ -41,26 +41,13 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {};
-  },
   methods: {
     toggleInterest(event) {
       this.$emit("toggle-interest", event);
     },
 
-    async deleteEvent(eventId) {
-      try {
-        await fetch(
-          `https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/events/${eventId}`,
-          {
-            method: "DELETE",
-          }
-        );
-        this.$emit("delete-event", eventId);
-      } catch (error) {
-        console.error("Error deleting event:", error);
-      }
+    submitDeleteEvent(eventId) {
+      this.$emit("submit-delete-event", eventId);
     },
   },
 };

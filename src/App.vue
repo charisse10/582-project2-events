@@ -7,7 +7,11 @@
             src="https://static.vecteezy.com/system/resources/thumbnails/017/398/790/small/white-circle-free-png.png"
             alt="logo"
           />
-          <p>com / events</p>
+          <div class="home">
+            <router-link to="/">
+              <p>com/events</p>
+            </router-link>
+          </div>
         </div>
         <NavBar />
       </nav>
@@ -45,8 +49,6 @@ $blue: #2c3e50;
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
 
   h1 {
@@ -76,40 +78,66 @@ $blue: #2c3e50;
             width: 50px;
           }
 
-          p {
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: medium;
-            margin-left: 10px;
-          }
-        }
+          .home {
+            p {
+              color: #ffffff;
+              font-size: 1.2rem;
+              font-weight: bolder;
+              margin-left: 10px;
 
-        .navbar {
-          display: flex;
+              &:hover {
+                color: rgb(255, 255, 124);
+              }
+            }
 
-          a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: medium;
-            margin-left: 25px;
-
-            &:hover {
+            .router-link-active p {
+              text-decoration: none;
               color: rgb(255, 255, 124);
-              text-decoration: underline;
-              text-underline-offset: 5px;
             }
           }
+        } //logo
 
-          #access {
-            border-radius: 15px;
-            padding: 0 5px;
-            cursor: pointer;
+        .access {
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+
+          button {
+            padding: 5px 10px;
+            border-radius: 25px;
+            margin-left: 25px;
           }
-        }
+          .active {
+            background-color: rgb(255, 255, 124);
+          }
+
+          .access-link {
+            position: absolute;
+            text-align: center;
+            background: $blue;
+
+            a {
+              color: #ffffff;
+              font-weight: bolder;
+              margin-left: 10px;
+              text-align: center;
+              text-decoration: none;
+
+              &:hover {
+                color: rgb(255, 255, 124);
+              }
+            }
+
+            .router-link-active a {
+              text-decoration: none;
+              color: rgb(255, 255, 124);
+            }
+          }
+        } //navbar
       } //nav
-    } //conatainer
-  }
+    } //container
+  } //header
+
   .section-events {
     padding: 25px 0;
 

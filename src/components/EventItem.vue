@@ -41,32 +41,13 @@ export default {
       default: false,
     },
   },
-<<<<<<< HEAD
-  data() {
-    return {};
-  },
-
-=======
->>>>>>> b64598cb48e912176bf280b1a59b09d5110f4927
   methods: {
     toggleInterest(event) {
       this.$emit("toggle-interest", event);
     },
 
-<<<<<<< HEAD
-    async deleteEvent(eventId) {
-      try {
-        await fetch(`http://localhost:3000/${eventId}`, {
-          method: "DELETE",
-        });
-        this.$emit("delete-event", eventId);
-      } catch (error) {
-        console.error("Error deleting event:", error);
-      }
-=======
     submitDeleteEvent(eventId) {
       this.$emit("submit-delete-event", eventId);
->>>>>>> b64598cb48e912176bf280b1a59b09d5110f4927
     },
   },
 };

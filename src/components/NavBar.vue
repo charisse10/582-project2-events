@@ -1,19 +1,14 @@
 <template>
-  <nav>
-    <div class="container">
-      <div class="navbar">
-        <router-link to="/">Home</router-link>
-        <!-- <router-link to="/access">Access</router-link> -->
-        <router-link to="/admin">Admin</router-link>
-        <router-link to="/user">User</router-link>
-      </div>
-    </div>
-    <div></div>
-  </nav>
+  <AccessNav></AccessNav>
 </template>
 
 <script>
+import AccessNav from "./AccessNav.vue";
+
 export default {
-  name: "AcessNav",
+  name: "NavBar",
+  components: {
+    AccessNav,
+  },
 };
 </script>

@@ -57,8 +57,6 @@
 </template>
 
 <script>
-import { useEventsStore } from "@/store/events";
-
 export default {
   name: "FormComponent",
   data() {
@@ -69,11 +67,11 @@ export default {
       timeInput: "",
       locationInput: "",
       isSubmitted: false,
+      events: [],
     };
   },
   methods: {
-    addEvent() {
-      const eventsStore = useEventsStore();
+    async addEvent() {
       const formData = {
         title: this.titleInput,
         category: this.categoryInput,
@@ -86,18 +84,19 @@ export default {
         "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/",
         {
           method: "post",
-          body: JSON.stringify(formData),
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify(formData),
         }
       )
         .then((response) => response.json())
         .then((data) => {
           console.log("Success!", data);
-          eventsStore.addEvent(data);
+          this.$emit("eventCreated", data);
 
-          (this.isSubmitted = true), (this.titleInput = "");
+          this.isSubmitted = true;
+          this.titleInput = "";
           this.categoryInput = "";
           this.dateInput = "";
           this.timeInput = "";

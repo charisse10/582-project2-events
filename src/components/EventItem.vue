@@ -11,43 +11,52 @@
     <p>
       LOCATION: <span> {{ event.location }} </span>
     </p>
-    <button
-      v-if="showButtons"
-      @click="toggleInterest(event)"
-      :class="{ interestedbutton: event.interested }"
-    >
-      {{ event.interested ? "Interested!" : "Interested" }}
-    </button>
-    <button v-if="showDeleteButton" @click="submitDeleteEvent(event.id)">
-      DELETE
-    </button>
+    <!-- <ToggleInterest
+      :event="event"
+      :showButtons="showButtons"
+      @toggleInterest="toggleInterest"
+    /> -->
+    <DeleteButton
+      v-if="showDeleteButton"
+      :event-id="event._id"
+      @event-deleted="handleEventDeleted"
+    />
   </div>
 </template>
 
 <script>
+// import ToggleInterest from "./ToggleInterest.vue";
+import DeleteButton from "./DeleteButton.vue";
+
 export default {
   name: "EventItem",
+  components: {
+    // ToggleInterest,
+    DeleteButton,
+  },
   props: {
     event: {
       type: Object,
       required: true,
     },
-    showButtons: {
-      type: Boolean,
-      default: false,
-    },
+    // showButtons: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     showDeleteButton: {
       type: Boolean,
       default: false,
     },
   },
   methods: {
-    toggleInterest(event) {
-      this.$emit("toggle-interest", event);
-    },
+    // toggleInterest() {
+    //   const updatedEvent = { ...this.event };
+    //   updatedEvent.interested = !updatedEvent.interested;
+    //   this.$emit("toggle-interest", updatedEvent);
+    // },
 
-    submitDeleteEvent(eventId) {
-      this.$emit("submit-delete-event", eventId);
+    handleEventDeleted() {
+      this.$emit("event-deleted", this.event._id);
     },
   },
 };

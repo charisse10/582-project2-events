@@ -6,10 +6,11 @@
 export default {
   name: "DeleteButton",
   methods: {
-    async deleteEvent() {
+    async deleteEvent(eventId) {
       try {
         const response = await fetch(
-          `https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/events/${this.eventId}`,
+          "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/" +
+            `${eventId}`,
           {
             method: "DELETE",
             headers: {

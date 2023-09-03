@@ -2,7 +2,7 @@
   <div class="about">
     <h1>User View</h1>
   </div>
-  <EventList :showButtons="true" />
+  <EventList :showButtons="true" :showFilters="true" />
 </template>
 
 <script>

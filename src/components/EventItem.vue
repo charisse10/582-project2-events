@@ -61,3 +61,66 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+$orange: #f44d00;
+$yellow: rgb(255, 255, 124);
+$blue: #2c3e50;
+
+.event {
+  text-align: center;
+  background-color: $blue;
+  color: #fff;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  position: relative;
+
+  &:hover {
+    background-color: $orange;
+    transition: 1s;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: $yellow;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background: #fff;
+    padding: 5px 30px;
+    border: 2px solid $orange;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    transform: translateX(-50%);
+  }
+
+  p {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  button.interestedbutton {
+    background-color: $orange;
+    color: #fff;
+  }
+}
+</style>

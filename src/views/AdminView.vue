@@ -1,9 +1,15 @@
 <template>
-  <div class="about">
-    <h1>Admin View</h1>
+  <div class="access">
+    <h1>Welcome Admin!</h1>
   </div>
-  <FormComponent />
-  <EventList :showDeleteButton="true" :showFilters="false" />
+  <div class="admin-view">
+    <div class="form-wrapper">
+      <FormComponent />
+    </div>
+    <div class="events-wrapper">
+      <EventList :showDeleteButton="true" :showFilters="false" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -21,3 +27,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+// .admin-view {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+// .form-wrapper {
+//   width: 25%;
+// }
+
+// .events-wrapper {
+//   width: 100%;
+// }
+</style>

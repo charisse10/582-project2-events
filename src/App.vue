@@ -38,13 +38,8 @@ export default {
   box-sizing: border-box;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 $orange: #f44d00;
+$yellow: rgb(255, 255, 124);
 $blue: #2c3e50;
 
 #app {
@@ -52,17 +47,18 @@ $blue: #2c3e50;
   font-size: 16px;
 
   h1 {
+    color: $blue;
     text-align: center;
-    padding: 25px 0;
+    padding: 15px 0 0;
   }
 
   header {
-    background-color: $orange;
+    background-color: $blue;
 
     .container {
       max-width: 80%;
       margin: 0 auto;
-      padding: 10px 0;
+      padding: 10px 0 20px;
 
       nav {
         display: flex;
@@ -83,54 +79,55 @@ $blue: #2c3e50;
               color: #ffffff;
               font-size: 1.2rem;
               font-weight: bolder;
-              margin-left: 10px;
+              margin-left: 5px;
 
               &:hover {
-                color: rgb(255, 255, 124);
+                color: $yellow;
               }
             }
 
             .router-link-active p {
               text-decoration: none;
-              color: rgb(255, 255, 124);
+              color: $yellow;
             }
           }
         } //logo
 
         .access {
-          justify-content: space-between;
-          align-items: center;
           position: relative;
 
           button {
-            padding: 5px 10px;
-            border-radius: 25px;
-            margin-left: 25px;
+            padding: 2px 10px;
+            border-radius: 10px;
+            display: inline;
+            margin-left: 5px;
+
+            &:hover {
+              background-color: $yellow;
+            }
           }
           .active {
-            background-color: rgb(255, 255, 124);
+            background-color: $yellow;
           }
 
           .access-link {
-            position: absolute;
-            text-align: center;
             background: $blue;
+            position: absolute;
+            bottom: -25px;
 
             a {
               color: #ffffff;
-              font-weight: bolder;
-              margin-left: 10px;
-              text-align: center;
               text-decoration: none;
+              margin-left: 10px;
 
               &:hover {
-                color: rgb(255, 255, 124);
+                color: $yellow;
               }
             }
 
             .router-link-active a {
               text-decoration: none;
-              color: rgb(255, 255, 124);
+              color: $yellow;
             }
           }
         } //navbar
@@ -138,83 +135,12 @@ $blue: #2c3e50;
     } //container
   } //header
 
-  .section-events {
-    padding: 25px 0;
-
-    .container {
-      max-width: 90%;
-      margin: 0 auto;
-
-      h2 {
-        text-align: center;
-        margin-bottom: 25px;
-      }
-
-      .event {
-        text-align: center;
-        background-color: #f3f3f3;
-        padding: 25px;
-        margin-bottom: 25px;
-        border-radius: 25px;
-        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-
-        &:hover {
-          background-color: #fff7f2;
-        }
-
-        span {
-          font-weight: bold;
-        }
-
-        h4 {
-          text-transform: uppercase;
-          text-decoration: underline;
-          text-underline-offset: 5px;
-          margin-bottom: 20px;
-        }
-
-        h3 {
-          color: $orange;
-          text-transform: capitalize;
-          font-size: 1.5rem;
-          line-height: 1.2;
-          margin-bottom: 20px;
-        }
-
-        button {
-          background: #fff;
-          padding: 5px 30px;
-          border: 2px solid $orange;
-          border-radius: 25px;
-          margin-top: 20px;
-          font-weight: bold;
-          cursor: pointer;
-        }
-
-        p {
-          max-width: 80%;
-          margin: 0 auto;
-          text-align: left;
-        }
-
-        button.interestedbutton {
-          background-color: $orange;
-          color: #fff;
-        }
-      }
-
-      .event.interestedevent {
-        background-color: #e4f0ff;
-      }
-    }
-  }
-
   .section-form {
     max-width: 90%;
-    margin: 25px auto 50px;
+    margin: 25px auto 25px;
     border-radius: 25px;
     background: $blue;
-    padding: 35px 0;
+    padding: 25px 0;
 
     .added {
       color: #fff;
@@ -229,34 +155,6 @@ $blue: #2c3e50;
       h2 {
         color: #fff;
         margin-bottom: 10px;
-      }
-
-      form {
-        input {
-          display: block;
-          margin-bottom: 10px;
-          padding: 10px;
-          width: 100%;
-          border: 1px solid #878787;
-        }
-
-        input#esubmit {
-          background-color: $orange;
-          color: #fff;
-          width: 200px;
-          margin: 30px auto 30px;
-          border-radius: 25px;
-          font-size: 1.1rem;
-          font-weight: bold;
-          text-transform: uppercase;
-          cursor: pointer;
-        }
-
-        .placeholder {
-          width: 100%;
-          padding: 10px;
-          margin-bottom: 10px;
-        }
       }
     }
   }

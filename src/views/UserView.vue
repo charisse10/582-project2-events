@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>User View</h1>
+  <div class="access">
+    <h1>Welcome Max!</h1>
   </div>
   <EventList :showButtons="true" :showFilters="true" />
 </template>

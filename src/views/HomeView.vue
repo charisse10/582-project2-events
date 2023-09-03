@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>CSL Summer in the City 2023</h1>
+    <h1>{{ header }}</h1>
     <EventList :showFilters="true" />
   </div>
 </template>
@@ -10,6 +10,12 @@ import EventList from "@/components/EventList.vue";
 
 export default {
   name: "HomeView",
+  data() {
+    return {
+      header: "Côte Saint-Luc 2023",
+    };
+  },
+
   components: {
     EventList,
   },

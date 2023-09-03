@@ -2,19 +2,23 @@
   <section class="section-events">
     <div class="container">
       <h2>Summer Events</h2>
-      <FilterEvents
-        v-if="showFilters"
-        :categories="uniqueCategories"
-        @filter-changed="applyFilter"
-      ></FilterEvents>
-      <div v-for="event in filteredEvents" :key="event.id">
-        <EventItem
-          :event="event"
-          :showDeleteButton="showDeleteButton"
-          :showButtons="showButtons"
-          @delete-event="deleteEvent(event._id)"
-          @toggle-interest="toggleInterest"
-        />
+      <div class="flex-container">
+        <FilterEvents
+          v-if="showFilters"
+          :categories="uniqueCategories"
+          @filter-changed="applyFilter"
+        ></FilterEvents>
+        <div class="events-flex">
+          <div v-for="event in filteredEvents" :key="event.id">
+            <EventItem
+              :event="event"
+              :showDeleteButton="showDeleteButton"
+              :showButtons="showButtons"
+              @delete-event="deleteEvent(event._id)"
+              @toggle-interest="toggleInterest"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -98,3 +102,79 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+$orange: #f44d00;
+$yellow: rgb(255, 255, 124);
+$blue: #2c3e50;
+
+.section-events {
+  padding: 25px 0;
+
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+
+    h2 {
+      color: $orange;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .flex-container {
+      .filter-events {
+        padding: 10px 0 25px;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .events-flex {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+
+        .event {
+          min-height: 350px;
+        }
+      }
+    } //flex-container
+  } //container
+} //section-events
+
+@media only screen and (min-width: 768px) {
+  .section-events {
+    .container {
+      .flex-container {
+        .events-flex {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      } //flex-container
+    } //container
+  } //section-events
+}
+
+@media only screen and (min-width: 1200px) {
+  .section-events {
+    .container {
+      .flex-container {
+        .events-flex {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      } //flex-container
+    } //container
+  } //section-events
+}
+
+@media only screen and (min-width: 1800px) {
+  .section-events {
+    .container {
+      .flex-container {
+        .events-flex {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      } //flex-container
+    } //container
+  } //section-events
+}
+</style>

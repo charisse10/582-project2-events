@@ -109,3 +109,35 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+$orange: #f44d00;
+
+// form {
+//   input {
+//     display: block;
+//     margin-bottom: 10px;
+//     padding: 10px;
+//     width: 100%;
+//     border: 1px solid #878787;
+//   }
+
+//   input#esubmit {
+//     background-color: $orange;
+//     color: #fff;
+//     width: 200px;
+//     margin: 15px auto 30px;
+//     border-radius: 25px;
+//     font-size: 1.1rem;
+//     font-weight: bold;
+//     text-transform: uppercase;
+//     cursor: pointer;
+//   }
+
+//   .placeholder {
+//     width: 100%;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//   }
+// }
+</style>

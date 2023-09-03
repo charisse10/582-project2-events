@@ -1,6 +1,6 @@
 <template>
   <div class="filter-events">
-    <h3>Select Category</h3>
+    <h3>What interests you?</h3>
     <label v-for="category in categories" :key="category">
       <input
         type="checkbox"

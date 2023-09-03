@@ -21,7 +21,7 @@
         exact
         class="router-link"
       >
-        {{ userType === "admin" ? "Welcome Admin" : "Welcome User" }}
+        {{ userType === "admin" ? "Confirm Admin" : "Confirm User" }}
       </router-link>
     </div>
   </div>

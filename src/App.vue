@@ -11,6 +11,9 @@
             <router-link to="/">
               <p>com/events</p>
             </router-link>
+            <router-link to="/events">
+              <p>EVENTS</p>
+            </router-link>
           </div>
         </div>
         <NavBar />

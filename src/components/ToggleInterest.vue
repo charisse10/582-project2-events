@@ -2,9 +2,9 @@
   <button
     v-if="showButtons"
     @click="toggleInterest"
-    :class="{ interestedbutton: event.interested }"
+    :class="{ interestedbutton: interested }"
   >
-    {{ event.interested ? "Interested!" : "Interested" }}
+    {{ interested ? "Interested!" : "Interested" }}
   </button>
 </template>
 
@@ -20,14 +20,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    interested: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   methods: {
     toggleInterest() {
-      console.log("Toggle Interest Clicked for Event:", this.event);
-      const updatedEvent = { ...this.event };
-      updatedEvent.interested = !updatedEvent.interested;
-      this.$emit("toggle-interest", updatedEvent);
+      this.$emit("toggle-interest");
     },
   },
 };

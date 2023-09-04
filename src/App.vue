@@ -141,7 +141,7 @@ $blue: #2c3e50;
     max-width: 90%;
     margin: 25px auto 25px;
     border-radius: 25px;
-    background: $blue;
+    background: rgb(182, 182, 182);
     padding: 25px 0;
 
     .added {

@@ -9,7 +9,7 @@ export default {
     async deleteEvent(eventId) {
       try {
         const response = await fetch(
-          "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/" +
+          "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/admin/" +
             `${eventId}`,
           {
             method: "DELETE",

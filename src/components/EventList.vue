@@ -14,7 +14,7 @@
               :event="event"
               :showDeleteButton="showDeleteButton"
               :showButtons="showButtons"
-              @delete-event="deleteEvent(event._id)"
+              @delete-event="deleteEvent"
               @toggle-interest="toggleInterest"
             />
           </div>
@@ -90,11 +90,12 @@ export default {
     deleteEvent() {},
 
     toggleInterest(updatedEvent) {
-      const index = this.events.findIndex((e) => e.id === updatedEvent.id);
-
-      if (index !== -1) {
-        this.$set(this.events, index, updatedEvent);
-      }
+      this.events = this.events.map((event) => {
+        if (event.id === updatedEvent.id) {
+          return { ...event, interested: updatedEvent.interested };
+        }
+        return event; // Return unchanged events
+      });
     },
   },
   created() {
@@ -127,6 +128,10 @@ $blue: #2c3e50;
         padding: 10px 0 25px;
         display: grid;
         grid-template-columns: 1fr;
+
+        h3 {
+          margin-bottom: 25px;
+        }
       }
 
       .events-flex {

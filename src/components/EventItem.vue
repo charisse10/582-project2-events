@@ -14,6 +14,7 @@
     <ToggleInterest
       :event="event"
       :showButtons="showButtons"
+      :interested="interested"
       @toggleInterest="toggleInterest"
     />
     <DeleteButton
@@ -48,10 +49,18 @@ export default {
       default: false,
     },
   },
+
+  data() {
+    return {
+      interested: this.event.interested,
+    };
+  },
+
   methods: {
     toggleInterest() {
       const updatedEvent = { ...this.event };
       updatedEvent.interested = !updatedEvent.interested;
+      this.interested = updatedEvent.interested;
       this.$emit("toggle-interest", updatedEvent);
     },
 

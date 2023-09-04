@@ -2,8 +2,7 @@
 
 #### This web app is built with NodeJS as runtime environment, VueJS for frontend with Pinia as state management, ExpressJS for bankend, and MongoDB as database.
 
-![Uploading screencapture-localhost-8080-admin-2023-09-04-18_08_02.png…]()
-
+![screencapture-localhost-8080-admin-2023-09-04-18_08_02](https://github.com/charisse10/582-project2-events/assets/118192587/3eace852-aad6-4f6f-8214-8350ed240550)
 
 ## Table of Contents
 -[Introduction](#introduction)

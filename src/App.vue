@@ -11,6 +11,9 @@
             <router-link to="/">
               <p>com/events</p>
             </router-link>
+            <router-link to="/events">
+              <p>EVENTS</p>
+            </router-link>
           </div>
         </div>
         <NavBar />
@@ -100,7 +103,6 @@ $blue: #2c3e50;
             padding: 2px 10px;
             border-radius: 10px;
             display: inline;
-            margin-left: 5px;
 
             &:hover {
               background-color: $yellow;

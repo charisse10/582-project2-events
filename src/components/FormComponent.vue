@@ -94,6 +94,7 @@ export default {
         .then((data) => {
           console.log("Success!", data);
           this.$emit("eventCreated", data);
+          window.location.reload();
 
           this.isSubmitted = true;
           this.titleInput = "";

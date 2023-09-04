@@ -110,7 +110,7 @@ $yellow: rgb(255, 255, 124);
 $blue: #2c3e50;
 
 .section-events {
-  padding: 25px 0;
+  padding: 25px 0 100px;
 
   .container {
     max-width: 90%;
@@ -121,6 +121,7 @@ $blue: #2c3e50;
       text-transform: uppercase;
       margin-bottom: 50px;
       text-align: center;
+      font-size: 2.5rem;
     }
 
     .flex-container {

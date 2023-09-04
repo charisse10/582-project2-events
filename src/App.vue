@@ -103,7 +103,6 @@ $blue: #2c3e50;
             padding: 2px 10px;
             border-radius: 10px;
             display: inline;
-            margin-left: 5px;
 
             &:hover {
               background-color: $yellow;

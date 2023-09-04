@@ -1,6 +1,8 @@
-# Social Medium: Events App
+# DOT COM EVENTS: Events App
 
 #### This web app is built with NodeJS as runtime environment, VueJS for frontend with Pinia as state management, ExpressJS for bankend, and MongoDB as database.
+
+![Uploading screencapture-localhost-8080-admin-2023-09-04-18_08_02.png…]()
 
 
 ## Table of Contents

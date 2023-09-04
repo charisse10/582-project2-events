@@ -24,6 +24,16 @@ It will have 3 main views: Default, User, and Admin Page. I am simulating an aut
     
 ## Tasks
 
+- [x] Testing
+- [x] Project item
+- [x] Project list
+- [x] Filtering
+- [x] Adding a Project
+- [ ] Deleting a Project
+- [ ] Updating a Project
+- [x] Toggle Interest
+- [ ] Interested List
+
 ## Project setup
 ```
 npm install

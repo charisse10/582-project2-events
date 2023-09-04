@@ -60,7 +60,6 @@ $blue: #2c3e50;
 
   h1 {
     color: $blue;
-    font-size: 3rem;
     text-align: center;
     padding: 35px 0 0;
   }

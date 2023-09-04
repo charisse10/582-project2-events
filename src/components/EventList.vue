@@ -121,7 +121,7 @@ $blue: #2c3e50;
       text-transform: uppercase;
       margin-bottom: 50px;
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 1.8rem;
     }
 
     .flex-container {

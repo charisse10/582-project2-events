@@ -1,11 +1,48 @@
-import { defineStore } from "pinia";
+//import { defineStore } from "pinia";
 
 export const useEventsStore = defineStore("events", {
   state: () => ({
     workingURL:
       "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/",
+  }),//
+
+
+import { defineStore } from 'pinia';
+
+export const useEventStore = defineStore({
+  id: 'event',
+  state: () => ({
+    events: [],
   }),
+  getters: {
+    getEventById: (state) => (id) => state.events.find((event) => event.id === id),
+  },
+  actions: {
+    addEvent(event) {
+      this.events.push(event);
+    },
+    deleteEvent(id) {
+      const index = this.events.findIndex((event) => event.id === id);
+      if (index !== -1) {
+        this.events.splice(index, 1);
+      }
+    },
+    updateEvent(updatedEvent) {
+      const index = this.events.findIndex((event) => event.id === updatedEvent.id);
+      if (index !== -1) {
+        this.events[index] = updatedEvent;
+      }
+    },
+    likeEvent(id) {
+      const event = this.getEventById(id);
+      if (event) {
+        event.likes++;
+      }
+    },
+  },
 });
+
+
 
 /* <style lang="scss">
 * {

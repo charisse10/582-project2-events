@@ -1,7 +1,11 @@
 <template>
   <div class="home">
     <h1>{{ header }}</h1>
-    <EventList :showFilters="true" />
+    <EventList
+      :showFilters="true"
+      :showInterestButton="false"
+      :showInterestCount="true"
+    />
   </div>
 </template>
 

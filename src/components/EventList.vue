@@ -8,14 +8,13 @@
           :categories="uniqueCategories"
           @filter-changed="applyFilter"
         ></FilterEvents>
+
         <div class="events-flex">
-          <div v-for="event in filteredEvents" :key="event.id">
+          <div v-for="event in filteredEvents" :key="event._id">
             <EventItem
               :event="event"
-              :showDeleteButton="showDeleteButton"
-              :showButtons="showButtons"
-              @delete-event="deleteEvent(event._id)"
-              @toggle-interest="toggleInterest"
+              :showInterestButton="showInterestButton"
+              :showInterestCount="showInterestCount"
             />
           </div>
         </div>
@@ -30,24 +29,34 @@ import FilterEvents from "./FilterEvents.vue";
 
 export default {
   name: "EventList",
+
   components: {
     EventItem,
     FilterEvents,
   },
+
   props: {
-    showButtons: {
-      type: Boolean,
-      default: false,
-    },
-    showDeleteButton: {
-      type: Boolean,
-      default: false,
-    },
     showFilters: {
       type: Boolean,
       default: false,
     },
+
+    showInterestButton: {
+      type: Boolean,
+      default: true,
+    },
+
+    showInterestCount: {
+      type: Boolean,
+      default: true,
+    },
+
+    userView: {
+      type: Boolean,
+      default: false,
+    },
   },
+
   data() {
     return {
       events: [],
@@ -55,6 +64,7 @@ export default {
       uniqueCategories: [],
     };
   },
+
   computed: {
     filteredEvents() {
       if (this.selectedCategories.length === 0) {
@@ -66,6 +76,7 @@ export default {
       }
     },
   },
+
   methods: {
     async fetchEvents() {
       try {
@@ -86,16 +97,6 @@ export default {
     applyFilter(selectedCategories) {
       this.selectedCategories = selectedCategories;
     },
-
-    deleteEvent() {},
-
-    toggleInterest(updatedEvent) {
-      const index = this.events.findIndex((e) => e.id === updatedEvent.id);
-
-      if (index !== -1) {
-        this.$set(this.events, index, updatedEvent);
-      }
-    },
   },
   created() {
     this.fetchEvents();
@@ -109,7 +110,7 @@ $yellow: rgb(255, 255, 124);
 $blue: #2c3e50;
 
 .section-events {
-  padding: 25px 0;
+  padding: 25px 0 100px;
 
   .container {
     max-width: 90%;
@@ -120,6 +121,7 @@ $blue: #2c3e50;
       text-transform: uppercase;
       margin-bottom: 50px;
       text-align: center;
+      font-size: 1.8rem;
     }
 
     .flex-container {
@@ -127,6 +129,10 @@ $blue: #2c3e50;
         padding: 10px 0 25px;
         display: grid;
         grid-template-columns: 1fr;
+
+        h3 {
+          margin-bottom: 25px;
+        }
       }
 
       .events-flex {

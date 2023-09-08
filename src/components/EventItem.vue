@@ -1,5 +1,5 @@
 <template>
-  <div class="event" :class="{ interestedevent: event.interested }">
+  <div class="event">
     <h4>{{ event.category }}</h4>
     <h3>{{ event.title }}</h3>
     <p>
@@ -11,52 +11,36 @@
     <p>
       LOCATION: <span> {{ event.location }} </span>
     </p>
-    <ToggleInterest
-      :event="event"
-      :showButtons="showButtons"
-      @toggleInterest="toggleInterest"
-    />
-    <DeleteButton
-      v-if="showDeleteButton"
-      :event-id="event._id"
-      @event-deleted="handleEventDeleted"
-    />
+    <ToggleInterest v-if="showInterestButton" :eventId="event._id" />
+    <InterestedCount v-if="showInterestCount" :eventId="event._id" />
   </div>
 </template>
 
 <script>
 import ToggleInterest from "./ToggleInterest.vue";
-import DeleteButton from "./DeleteButton.vue";
+import InterestedCount from "./InterestedCount.vue";
 
 export default {
   name: "EventItem",
+
   components: {
     ToggleInterest,
-    DeleteButton,
+    InterestedCount,
   },
   props: {
     event: {
       type: Object,
       required: true,
     },
-    showButtons: {
+
+    showInterestButton: {
       type: Boolean,
-      default: false,
-    },
-    showDeleteButton: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  methods: {
-    toggleInterest() {
-      const updatedEvent = { ...this.event };
-      updatedEvent.interested = !updatedEvent.interested;
-      this.$emit("toggle-interest", updatedEvent);
+      default: true,
     },
 
-    handleEventDeleted() {
-      this.$emit("event-deleted", this.event._id);
+    showInterestCount: {
+      type: Boolean,
+      default: true,
     },
   },
 };
@@ -74,7 +58,6 @@ $blue: #2c3e50;
   padding: 35px;
   border-radius: 25px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  position: relative;
 
   &:hover {
     background-color: $orange;
@@ -100,27 +83,10 @@ $blue: #2c3e50;
     margin-bottom: 20px;
   }
 
-  button {
-    background: #fff;
-    padding: 5px 30px;
-    border: 2px solid $orange;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute;
-    bottom: 30px;
-    transform: translateX(-50%);
-  }
-
   p {
     max-width: 80%;
     margin: 0 auto;
     text-align: left;
-  }
-
-  button.interestedbutton {
-    background-color: $orange;
-    color: #fff;
   }
 }
 </style>

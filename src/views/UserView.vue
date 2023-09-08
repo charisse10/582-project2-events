@@ -2,7 +2,11 @@
   <div class="access">
     <h1>Welcome Max!</h1>
   </div>
-  <EventList :showButtons="true" :showFilters="true" />
+  <EventList
+    :showFilters="true"
+    :showInterestButton="true"
+    :showInterestCount="false"
+  />
 </template>
 
 <script>

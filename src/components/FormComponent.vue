@@ -95,6 +95,10 @@ export default {
           console.log("Success!", data);
           this.$emit("eventCreated", data);
 
+          setTimeout(function () {
+            window.location.reload();
+          }, 3000);
+
           this.isSubmitted = true;
           this.titleInput = "";
           this.categoryInput = "";

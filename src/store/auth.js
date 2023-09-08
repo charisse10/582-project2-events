@@ -6,8 +6,8 @@ export const useAuthStore = defineStore({
     userType: "",
   }),
   actions: {
-    setUserType(userType) {
-      this.userType = userType;
+    toggleUserType() {
+      this.userType = this.userType === "admin" ? "user" : "admin";
     },
   },
 });

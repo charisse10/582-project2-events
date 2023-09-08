@@ -1,18 +1,7 @@
 <template>
   <div class="access">
     <div class="access-buttons">
-      <button
-        @click="setUserType('user')"
-        :class="{ active: userType === 'user' }"
-      >
-        USER
-      </button>
-      <button
-        @click="setUserType('admin')"
-        :class="{ active: userType === 'admin' }"
-      >
-        ADMIN
-      </button>
+      <button @click="toggleUserType">Access {{ userType }}</button>
     </div>
     <div class="access-link">
       <router-link
@@ -21,7 +10,7 @@
         exact
         class="router-link"
       >
-        {{ userType === "admin" ? "Confirm Admin" : "Confirm User" }}
+        {{ userType === "admin" ? "GO!" : "GO!" }}
       </router-link>
     </div>
   </div>
@@ -34,9 +23,9 @@ export default {
   name: "AccessNav",
 
   methods: {
-    setUserType(userType) {
+    toggleUserType() {
       const authStore = useAuthStore();
-      authStore.setUserType(userType);
+      authStore.toggleUserType();
     },
   },
 
@@ -53,3 +42,5 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped></style>

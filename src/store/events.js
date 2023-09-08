@@ -7,7 +7,6 @@
 //   }),
 // });
 
-
 import { defineStore } from "pinia";
 
 export const useInterestedEventsStore = defineStore("interestedEventsStore", {

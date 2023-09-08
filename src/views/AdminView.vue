@@ -7,7 +7,11 @@
       <FormComponent />
     </div>
     <div class="events-wrapper">
-      <EventList :showDeleteButton="true" :showFilters="false" />
+      <EventList
+        :showFilters="false"
+        :showInterestButton="false"
+        :showInterestCount="false"
+      />
     </div>
   </div>
 </template>

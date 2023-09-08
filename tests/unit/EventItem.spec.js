@@ -1,5 +1,5 @@
-import { shallowMount } from "@vue/test-utils";
-import EventItem from "./EventItem.vue";
+// import { shallowMount } from "@vue/test-utils";
+// import EventItem from "./EventItem.vue";
 
 describe("EventItem.vue", () => {
   it("renders event deials correctly", () => {});

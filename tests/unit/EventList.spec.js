@@ -1,5 +1,5 @@
-import { shallowMount } from "@vue/test-utils";
-import EventList from "./EventList.vue";
+// import { shallowMount } from "@vue/test-utils";
+// import EventList from "./EventList.vue";
 
 describe("EventList.vue", () => {
   it("renders events when fetched successfully", async () => {});

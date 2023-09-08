@@ -1,9 +1,15 @@
 <template>
   <button
     @click="toggleInterest"
+<<<<<<< HEAD
     :class="{ 'interested-button': isInterested }"
   >
     {{ isInterested ? "Interested!" : "Interested" }}
+=======
+    :class="{ interestedbutton: interested }"
+  >
+    {{ interested ? "Interested!" : "Interested" }}
+>>>>>>> e84040d26d78dae99ea123746a04c705a329b2ef
   </button>
   <!-- <div class="interested-count">Interested Count: {{ interestedCount }}</div> -->
 </template>
@@ -19,16 +25,31 @@ export default {
       type: String,
       required: true,
     },
+<<<<<<< HEAD
+=======
+    showButtons: {
+      type: Boolean,
+      default: false,
+    },
+    interested: {
+      type: Boolean,
+      default: false,
+    },
+>>>>>>> e84040d26d78dae99ea123746a04c705a329b2ef
   },
 
   methods: {
     toggleInterest() {
+<<<<<<< HEAD
       const store = useInterestedEventsStore();
       if (this.isInterested) {
         store.deleteInterestedEvent({ _id: this.eventId });
       } else {
         store.addInterestedEvent({ _id: this.eventId });
       }
+=======
+      this.$emit("toggle-interest");
+>>>>>>> e84040d26d78dae99ea123746a04c705a329b2ef
     },
   },
 

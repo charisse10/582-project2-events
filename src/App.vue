@@ -11,6 +11,9 @@
             <router-link to="/">
               <p>com/events</p>
             </router-link>
+            <!-- <router-link to="/events">
+              <p>EVENTS</p>
+            </router-link> -->
           </div>
         </div>
         <NavBar />
@@ -43,13 +46,22 @@ $yellow: rgb(255, 255, 124);
 $blue: #2c3e50;
 
 #app {
+  background: linear-gradient(
+      10deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url(https://images.pexels.com/photos/172505/pexels-photo-172505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size: cover;
+  min-height: 100vh;
+
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
 
   h1 {
     color: $blue;
     text-align: center;
-    padding: 15px 0 0;
+    padding: 35px 0 0;
   }
 
   header {
@@ -97,10 +109,10 @@ $blue: #2c3e50;
           position: relative;
 
           button {
-            padding: 2px 10px;
+            padding: 10px 25px;
             border-radius: 10px;
             display: inline;
-            margin-left: 5px;
+            font-weight: bold;
 
             &:hover {
               background-color: $yellow;
@@ -136,10 +148,11 @@ $blue: #2c3e50;
   } //header
 
   .section-form {
+    width: 800px;
     max-width: 90%;
     margin: 25px auto 25px;
     border-radius: 25px;
-    background: $blue;
+    background: rgb(165, 168, 155);
     padding: 25px 0;
 
     .added {

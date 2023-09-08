@@ -13,15 +13,8 @@
           <div v-for="event in filteredEvents" :key="event._id">
             <EventItem
               :event="event"
-<<<<<<< HEAD
               :showInterestButton="showInterestButton"
               :showInterestCount="showInterestCount"
-=======
-              :showDeleteButton="showDeleteButton"
-              :showButtons="showButtons"
-              @delete-event="deleteEvent"
-              @toggle-interest="toggleInterest"
->>>>>>> e84040d26d78dae99ea123746a04c705a329b2ef
             />
           </div>
         </div>
@@ -104,20 +97,6 @@ export default {
     applyFilter(selectedCategories) {
       this.selectedCategories = selectedCategories;
     },
-<<<<<<< HEAD
-=======
-
-    deleteEvent() {},
-
-    toggleInterest(updatedEvent) {
-      this.events = this.events.map((event) => {
-        if (event.id === updatedEvent.id) {
-          return { ...event, interested: updatedEvent.interested };
-        }
-        return event; // Return unchanged events
-      });
-    },
->>>>>>> e84040d26d78dae99ea123746a04c705a329b2ef
   },
   created() {
     this.fetchEvents();

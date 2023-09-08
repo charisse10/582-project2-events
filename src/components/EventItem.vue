@@ -11,22 +11,8 @@
     <p>
       LOCATION: <span> {{ event.location }} </span>
     </p>
-<<<<<<< HEAD
     <ToggleInterest v-if="showInterestButton" :eventId="event._id" />
     <InterestedCount v-if="showInterestCount" :eventId="event._id" />
-=======
-    <ToggleInterest
-      :event="event"
-      :showButtons="showButtons"
-      :interested="interested"
-      @toggleInterest="toggleInterest"
-    />
-    <DeleteButton
-      v-if="showDeleteButton"
-      :event-id="event._id"
-      @event-deleted="handleEventDeleted"
-    />
->>>>>>> e84040d26d78dae99ea123746a04c705a329b2ef
   </div>
 </template>
 
@@ -49,30 +35,7 @@ export default {
 
     showInterestButton: {
       type: Boolean,
-<<<<<<< HEAD
       default: true,
-=======
-      default: false,
-    },
-    showDeleteButton: {
-      type: Boolean,
-      default: false,
-    },
-  },
-
-  data() {
-    return {
-      interested: this.event.interested,
-    };
-  },
-
-  methods: {
-    toggleInterest() {
-      const updatedEvent = { ...this.event };
-      updatedEvent.interested = !updatedEvent.interested;
-      this.interested = updatedEvent.interested;
-      this.$emit("toggle-interest", updatedEvent);
->>>>>>> e84040d26d78dae99ea123746a04c705a329b2ef
     },
 
     showInterestCount: {
@@ -127,3 +90,4 @@ $blue: #2c3e50;
   }
 }
 </style>
+>

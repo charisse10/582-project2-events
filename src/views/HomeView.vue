@@ -5,6 +5,7 @@
       :showFilters="true"
       :showInterestButton="false"
       :showInterestCount="true"
+      :showDeleteButton="false"
     />
   </div>
 </template>

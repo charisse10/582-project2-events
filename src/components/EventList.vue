@@ -15,6 +15,9 @@
               :event="event"
               :showInterestButton="showInterestButton"
               :showInterestCount="showInterestCount"
+              :showDeleteButton="showDeleteButton"
+              :eventId="event._id"
+              @event-deleted="handleEventDeleted(event)"
             />
           </div>
         </div>
@@ -51,7 +54,7 @@ export default {
       default: true,
     },
 
-    userView: {
+    showDeleteButton: {
       type: Boolean,
       default: false,
     },
@@ -78,6 +81,18 @@ export default {
   },
 
   methods: {
+    handleEventDeleted(deletedEvent) {
+      const index = this.events.findIndex(
+        (event) => event._id === deletedEvent._id
+      );
+      if (index !== -1) {
+        this.events.splice(index, 1);
+        console.log(
+          `Event with ID ${deletedEvent._id} deleted from frontend data.`
+        );
+      }
+    },
+
     async fetchEvents() {
       try {
         const response = await fetch(

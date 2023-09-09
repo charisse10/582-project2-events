@@ -6,6 +6,7 @@
     :showFilters="true"
     :showInterestButton="true"
     :showInterestCount="false"
+    :showDeleteButton="false"
   />
 </template>
 

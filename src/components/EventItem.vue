@@ -12,13 +12,21 @@
       LOCATION: <span> {{ event.location }} </span>
     </p>
     <ToggleInterest v-if="showInterestButton" :eventId="event._id" />
+
     <InterestedCount v-if="showInterestCount" :eventId="event._id" />
+
+    <DeleteButton
+      v-if="showDeleteButton"
+      :eventId="event._id"
+      @delete-clicked="onDeleteEvent"
+    />
   </div>
 </template>
 
 <script>
 import ToggleInterest from "./ToggleInterest.vue";
 import InterestedCount from "./InterestedCount.vue";
+import DeleteButton from "./DeleteButton.vue";
 
 export default {
   name: "EventItem",
@@ -26,7 +34,9 @@ export default {
   components: {
     ToggleInterest,
     InterestedCount,
+    DeleteButton,
   },
+
   props: {
     event: {
       type: Object,
@@ -41,6 +51,22 @@ export default {
     showInterestCount: {
       type: Boolean,
       default: true,
+    },
+
+    showDeleteButton: {
+      type: Boolean,
+      default: true,
+    },
+  },
+
+  methods: {
+    onDeleteEvent() {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this event?"
+      );
+      if (confirmDelete) {
+        this.$emit("event-deleted");
+      }
     },
   },
 };
@@ -90,4 +116,3 @@ $blue: #2c3e50;
   }
 }
 </style>
->

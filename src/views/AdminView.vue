@@ -11,6 +11,7 @@
         :showFilters="false"
         :showInterestButton="false"
         :showInterestCount="false"
+        :showDeleteButton="true"
       />
     </div>
   </div>

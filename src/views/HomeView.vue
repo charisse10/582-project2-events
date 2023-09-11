@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>{{ header }}</h1>
-    <EventList
+    <EventsView
       :showFilters="true"
       :showInterestButton="false"
       :showInterestCount="true"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import EventList from "@/components/EventList.vue";
+import EventsView from "./EventsView.vue";
 
 export default {
   name: "HomeView",
@@ -22,7 +22,7 @@ export default {
   },
 
   components: {
-    EventList,
+    EventsView,
   },
 
   setup() {

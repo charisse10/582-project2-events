@@ -11,26 +11,33 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/events",
-    name: "events",
-    component: EventsView,
-    children: [
-      {
-        path: "event/:id",
-        name: "event",
-        component: EventsView,
-      },
-    ],
-  },
-  {
     path: "/user",
     name: "user",
     component: UserView,
+    // children: [
+    //   {
+    //     path: "events",
+    //     name: "user-events",
+    //     component: EventsView,
+    //   },
+    // ],
   },
   {
     path: "/admin",
     name: "admin",
     component: AdminView,
+    // children: [
+    //   {
+    //     path: "events",
+    //     name: "admin-events",
+    //     component: EventsView,
+    //   },
+    // ],
+  },
+  {
+    path: "/events/:_id",
+    name: "events",
+    component: EventsView,
   },
 ];
 

@@ -94,8 +94,8 @@ export default {
         .then((data) => {
           console.log("Success!", data);
           this.$emit("eventCreated", data);
-          window.location.reload();
 
+          window.location.reload();
           setTimeout(function () {
             window.location.reload();
           }, 3000);

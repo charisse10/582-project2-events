@@ -7,7 +7,7 @@
       <FormComponent />
     </div>
     <div class="events-wrapper">
-      <EventList
+      <EventsView
         :showFilters="false"
         :showInterestButton="false"
         :showInterestCount="false"
@@ -19,13 +19,13 @@
 
 <script>
 import FormComponent from "@/components/FormComponent.vue";
-import EventList from "@/components/EventList.vue";
+import EventsView from "./EventsView.vue";
 
 export default {
   name: "AdminView",
   components: {
     FormComponent,
-    EventList,
+    EventsView,
   },
   setup() {
     return {};

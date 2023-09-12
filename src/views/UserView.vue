@@ -2,7 +2,7 @@
   <div class="access">
     <h1>Welcome Max!</h1>
   </div>
-  <EventList
+  <EventsView
     :showFilters="true"
     :showInterestButton="true"
     :showInterestCount="false"
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import EventList from "@/components/EventList.vue";
+import EventsView from "./EventsView.vue";
 
 export default {
   name: "UserView",
   components: {
-    EventList,
+    EventsView,
   },
   setup() {
     return {};

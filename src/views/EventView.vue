@@ -24,12 +24,12 @@
 </template>
 
 <script>
-import ToggleInterest from "./ToggleInterest.vue";
-import InterestedCount from "./InterestedCount.vue";
-import DeleteButton from "./DeleteButton.vue";
+import ToggleInterest from "@/components/ToggleInterest.vue";
+import InterestedCount from "@/components/InterestedCount.vue";
+import DeleteButton from "@/components/DeleteButton.vue";
 
 export default {
-  name: "EventItem",
+  name: "EventView",
 
   components: {
     ToggleInterest,

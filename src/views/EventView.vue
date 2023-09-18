@@ -18,7 +18,7 @@
     <DeleteButton
       v-if="showDeleteButton"
       :eventId="event._id"
-      @delete-clicked="onDeleteEvent"
+      @event-deleted="$emit('event-deleted', event._id)"
     />
   </div>
 </template>
@@ -56,17 +56,6 @@ export default {
     showDeleteButton: {
       type: Boolean,
       default: true,
-    },
-  },
-
-  methods: {
-    onDeleteEvent() {
-      const confirmDelete = window.confirm(
-        "Are you sure you want to delete this event?"
-      );
-      if (confirmDelete) {
-        this.$emit("event-deleted");
-      }
     },
   },
 };

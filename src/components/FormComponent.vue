@@ -95,10 +95,10 @@ export default {
           console.log("Success!", data);
           this.$emit("eventCreated", data);
 
-          window.location.reload();
-          setTimeout(function () {
-            window.location.reload();
-          }, 3000);
+          // window.location.reload();
+          // setTimeout(function () {
+          //   window.location.reload();
+          // }, 3000);
 
           this.isSubmitted = true;
           this.titleInput = "";

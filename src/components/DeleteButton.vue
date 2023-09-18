@@ -7,32 +7,26 @@ export default {
   name: "DeleteButton",
 
   methods: {
-    // async deleteEvent() {
-    //   try {
-    //     const response = await fetch(
-    //       "https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/events/" +
-    //         `${this.eventId}`,
-    //       {
-    //         method: "DELETE",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //       }
-    //     );
-    //     if (response.ok) {
-    //       // this.$emit("event-deleted");
-    //       this.$emit("delete-clicked");
-    //       console.log("Event deleted successfully!");
-    //     } else {
-    //       console.error("Error deleting event!");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error deleting event:", error);
-    //   }
-    // },
-
-    deleteEvent() {
-      this.$emit("delete-clicked");
+    async deleteEvent() {
+      try {
+        const response = await fetch(
+          `https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/events/${this.eventId}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (response.ok) {
+          this.$emit("event-deleted", this.eventId);
+          console.log("Event deleted successfully!");
+        } else {
+          console.error("Error deleting event!");
+        }
+      } catch (error) {
+        console.error("Error deleting event:", error);
+      }
     },
   },
 

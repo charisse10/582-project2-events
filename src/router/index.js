@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import UserView from "../views/UserView.vue";
 import AdminView from "../views/AdminView.vue";
 import EventsView from "../views/EventsView.vue";
+import EventView from "../views/EventView.vue";
 
 const routes = [
   {
@@ -14,30 +15,23 @@ const routes = [
     path: "/user",
     name: "user",
     component: UserView,
-    // children: [
-    //   {
-    //     path: "events",
-    //     name: "user-events",
-    //     component: EventsView,
-    //   },
-    // ],
   },
   {
     path: "/admin",
     name: "admin",
     component: AdminView,
-    // children: [
-    //   {
-    //     path: "events",
-    //     name: "admin-events",
-    //     component: EventsView,
-    //   },
-    // ],
   },
   {
-    path: "/events/:_id",
+    path: "/events",
     name: "events",
     component: EventsView,
+    children: [
+      {
+        path: ":_id",
+        name: "event",
+        component: EventView,
+      },
+    ],
   },
 ];
 

@@ -17,7 +17,7 @@
               :showInterestCount="showInterestCount"
               :showDeleteButton="showDeleteButton"
               :eventId="event._id"
-              @event-deleted="handleEventDeleted(event)"
+              @event-deleted="deleteEvent(event._id)"
             />
           </div>
         </div>
@@ -81,19 +81,6 @@ export default {
   },
 
   methods: {
-    handleEventDeleted(deletedEvent) {
-      const index = this.events.findIndex(
-        (event) => event._id === deletedEvent._id
-      );
-
-      if (index !== -1) {
-        this.events.splice(index, 1);
-        console.log(
-          `Event with ID ${deletedEvent._id} deleted from frontend data.`
-        );
-      }
-    },
-
     async fetchEvents() {
       try {
         const response = await fetch(
@@ -113,7 +100,13 @@ export default {
     applyFilter(selectedCategories) {
       this.selectedCategories = selectedCategories;
     },
+
+    deleteEvent(eventId) {
+      this.events = this.events.filter((event) => event._id !== eventId);
+      console.log(`Event with ID ${eventId} deleted.`);
+    },
   },
+
   created() {
     this.fetchEvents();
   },

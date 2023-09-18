@@ -31,5 +31,17 @@ export const useInterestedEventsStore = defineStore("interestedEventsStore", {
         this.interestedEventCount--;
       }
     },
+
+    toggleInterestedEvent(event) {
+      const index = this.interestedEvents.findIndex(
+        (interestedEvent) => interestedEvent._id === event._id
+      );
+
+      if (index !== -1) {
+        this.interestedEvents[index].isInterested = event.isInterested;
+      } else {
+        this.interestedEvents.push({ ...event });
+      }
+    },
   },
 });

@@ -32,6 +32,33 @@ export default {
     },
   },
 
+  //   async toggleInterest() {
+  //     const store = useInterestedEventsStore();
+  //     const isInterested = !this.isInterested;
+
+  //     try {
+  //       const response = await fetch(
+  //         `https://probable-guacamole-w6r64q77rpqcg9rv-3000.app.github.dev/events/${this.eventId}`,
+  //         {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //           body: JSON.stringify({ isInterested }),
+  //         }
+  //       );
+
+  //       if (response.ok) {
+  //         store.toggleInterestedEvent({ _id: this.eventId, isInterested });
+  //       } else {
+  //         console.error("Error updating event interest status!");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error updating event interest status:", error);
+  //     }
+  //   },
+  // },
+
   computed: {
     isInterested() {
       const store = useInterestedEventsStore();

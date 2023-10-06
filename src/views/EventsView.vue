@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$yellow: rgb(253, 225, 69);
+$yellow: rgb(255, 255, 124);
 $blue: #2c3e50;
 
 .section-events {

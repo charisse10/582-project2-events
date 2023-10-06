@@ -115,7 +115,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$yellow: rgb(253, 225, 69);
+$yellow: rgb(255, 255, 124);
 
 h2 {
   text-transform: uppercase;

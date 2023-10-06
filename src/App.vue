@@ -41,7 +41,7 @@ export default {
   box-sizing: border-box;
 }
 
-$yellow: rgb(253, 225, 69);
+$yellow: rgb(255, 255, 124);
 $blue: #2c3e50;
 
 body {

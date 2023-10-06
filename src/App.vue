@@ -18,15 +18,18 @@
     </div>
   </header>
   <router-view />
+  <AppFooter></AppFooter>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   name: "App",
   components: {
     NavBar,
+    AppFooter,
   },
 };
 </script>
@@ -42,30 +45,37 @@ $orange: #f44d00;
 $yellow: rgb(255, 255, 124);
 $blue: #2c3e50;
 
-#app {
+body {
   background: linear-gradient(
       10deg,
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
     ),
-    url(https://images.pexels.com/photos/172505/pexels-photo-172505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    url(https://images.pexels.com/photos/1223651/pexels-photo-1223651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
   background-size: cover;
   min-height: 100vh;
+  background-attachment: fixed;
+}
 
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
 
   h1 {
     color: $blue;
     text-align: center;
-    padding: 35px 0 0;
+    padding: 125px 0 50px;
   }
 
   header {
     background-color: $blue;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
 
     .container {
-      max-width: 80%;
+      width: 1400px;
+      max-width: 90%;
       margin: 0 auto;
       padding: 10px 0 20px;
 

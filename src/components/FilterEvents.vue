@@ -1,6 +1,6 @@
 <template>
   <div class="filter-events">
-    <h3>What interests you?</h3>
+    <h3>Filter Events</h3>
     <label v-for="category in categories" :key="category">
       <input
         type="checkbox"
@@ -31,3 +31,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+h3 {
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  margin: 0 1rem 0.25rem;
+}
+</style>

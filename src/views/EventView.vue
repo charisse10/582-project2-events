@@ -68,14 +68,16 @@ $blue: #2c3e50;
 
 .event {
   text-align: center;
-  background-color: $blue;
+  background-color: rgba(44, 62, 80, 0.8);
   color: #fff;
   padding: 35px;
   border-radius: 25px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  max-height: 650px;
+  position: relative;
 
   &:hover {
-    background-color: $orange;
+    background-color: $blue;
     transition: 1s;
   }
 
@@ -102,6 +104,13 @@ $blue: #2c3e50;
     max-width: 80%;
     margin: 0 auto;
     text-align: left;
+  }
+
+  button {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 </style>

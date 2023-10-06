@@ -8,7 +8,7 @@
     </div>
     <div class="events-wrapper">
       <EventsView
-        :showFilters="false"
+        :showFilters="true"
         :showInterestButton="false"
         :showInterestCount="false"
         :showDeleteButton="true"
@@ -33,17 +33,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// .admin-view {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .form-wrapper {
-//   width: 25%;
-// }
-
-// .events-wrapper {
-//   width: 100%;
-// }
-</style>
+<style lang="scss"></style>

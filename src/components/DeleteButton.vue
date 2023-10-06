@@ -1,5 +1,5 @@
 <template>
-  <button @click="deleteEvent">DELETE</button>
+  <button @click="showDeleteConfirmation">DELETE</button>
 </template>
 
 <script>
@@ -26,6 +26,15 @@ export default {
         }
       } catch (error) {
         console.error("Error deleting event:", error);
+      }
+    },
+
+    showDeleteConfirmation() {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this event?"
+      );
+      if (confirmDelete) {
+        this.deleteEvent();
       }
     },
   },

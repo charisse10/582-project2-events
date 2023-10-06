@@ -41,8 +41,7 @@ export default {
   box-sizing: border-box;
 }
 
-$orange: #f44d00;
-$yellow: rgb(255, 255, 124);
+$yellow: rgb(253, 225, 69);
 $blue: #2c3e50;
 
 body {
@@ -157,9 +156,9 @@ body {
   .section-form {
     width: 800px;
     max-width: 90%;
-    margin: 25px auto 25px;
+    margin: 25px auto 100px;
     border-radius: 25px;
-    background: rgb(165, 168, 155);
+    background: $blue;
     padding: 25px 0;
 
     .added {

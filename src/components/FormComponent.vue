@@ -115,8 +115,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$orange: #f44d00;
+$yellow: rgb(253, 225, 69);
 
+h2 {
+  text-transform: uppercase;
+  padding-bottom: 15px;
+}
 form {
   input {
     display: block;
@@ -127,8 +131,7 @@ form {
   }
 
   input#esubmit {
-    background-color: $orange;
-    color: #fff;
+    background-color: $yellow;
     width: 200px;
     margin: 15px auto 30px;
     border-radius: 25px;

@@ -62,8 +62,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$orange: #f44d00;
-$yellow: rgb(255, 255, 124);
+$yellow: rgb(253, 225, 69);
 $blue: #2c3e50;
 
 .event {

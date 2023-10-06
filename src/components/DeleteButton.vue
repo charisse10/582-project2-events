@@ -1,5 +1,5 @@
 <template>
-  <button @click="deleteEvent">DELETE</button>
+  <button @click="showDeleteConfirmation">DELETE</button>
 </template>
 
 <script>
@@ -28,6 +28,15 @@ export default {
         console.error("Error deleting event:", error);
       }
     },
+
+    showDeleteConfirmation() {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this event?"
+      );
+      if (confirmDelete) {
+        this.deleteEvent();
+      }
+    },
   },
 
   props: {
@@ -40,8 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$orange: #f44d00;
-$yellow: rgb(255, 255, 124);
+$yellow: rgb(253, 225, 69);
 $blue: #2c3e50;
 
 button {

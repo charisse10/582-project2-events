@@ -2,13 +2,10 @@
   <div class="interested-count">
     <p v-if="interestedCount === 0"></p>
     <p v-else-if="interestedCount === 1">
-      <span> {{ interestedCount }} </span><br />
-      showed interest
+      <span>{{ interestedCount }}</span> interest
     </p>
     <p v-else>
-      <span>{{ interestedCount }}</span
-      ><br />
-      showed interest
+      <span>{{ interestedCount }}</span> interests
     </p>
   </div>
 </template>
@@ -40,11 +37,14 @@ export default {
 $yellow: rgb(255, 255, 124);
 
 .interested-count {
-  margin-top: 3rem;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
 
   span {
     color: $yellow;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: bold;
   }
 }
